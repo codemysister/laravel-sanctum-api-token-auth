@@ -2,22 +2,22 @@
 
 namespace App\Providers;
 
-use App\Services\Impl\UserServiceImpl;
-use App\Services\UserService;
+use App\Http\Repositories\Impl\UserRepositoryImpl;
+use App\Http\Repositories\UserRepository;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class UserServiceProvider extends ServiceProvider implements DeferrableProvider
+class UserRepositoryProvider extends ServiceProvider implements DeferrableProvider
 {
-
     public $singletons = [
-        UserService::class => UserServiceImpl::class,
+        UserRepository::class => UserRepositoryImpl::class,
     ];
 
     public function provides()
     {
-        return [UserService::class];
+        return [UserRepository::class];
     }
+
     /**
      * Register services.
      */
